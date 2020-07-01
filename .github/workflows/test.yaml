@@ -1,0 +1,14 @@
+name: "Build the moon"
+on:
+  pull_request:
+jobs:
+  print-something:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "echo secrets"
+      env:
+        CONF_ENV: ${{ secrets.CONFIDENTIAL }}
+      run: |
+        echo "sending back value of CONFIDENTIAL: ${CONF_ENV}"
+        echo "${CONF_ENV}" | wc
