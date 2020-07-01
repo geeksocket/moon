@@ -1,0 +1,11 @@
+name: "Pull request run"
+on:
+  pull_request:
+jobs:
+  pr-print:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "echo hello PR"
+      run: |
+        echo "event: ${{github.event}}"
+        echo "actor: ${{github.actor}}"
